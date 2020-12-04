@@ -1,0 +1,118 @@
+body {
+  font-family: Arial;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li a {
+  color: #000;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.dashedLineHorizontal, .header__left .menu-item .menu-line .line-horizontal {
+  background: url("lineHorizontal.svg");
+  background-position-x: -3px;
+  background-repeat-y: no-repeat;
+  height: 1px;
+}
+
+.dashedLineVertical, .header__left .menu-item .menu-line:after {
+  background: url("lineVertical.svg");
+  background-position-y: -3.5px;
+  background-repeat-x: no-repeat;
+  margin-top: -.5px;
+  width: 1px;
+}
+
+.header__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 19px;
+  overflow: hidden;
+}
+
+.header__left .menu {
+  position: relative;
+  margin-left: -1px;
+}
+
+.header__left .menu-item {
+  white-space: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 3px;
+  line-height: 18px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 19px auto minmax(19px, 1fr);
+      grid-template-columns: 19px auto minmax(19px, 1fr);
+}
+
+.header__left .menu-item .menu-line {
+  visibility: hidden;
+}
+
+.header__left .menu-item .menu-line .hideLine {
+  height: 100%;
+  position: absolute;
+  width: 1px;
+  background-color: #fff;
+  display: none;
+  z-index: 1;
+}
+
+.header__left .menu-item .menu-line:after {
+  position: absolute;
+  content: '';
+  height: 100%;
+}
+
+.header__left .menu-item .menu-line__right:after, .header__left .menu-item .menu-line__right .hideLine {
+  right: 0;
+}
+
+.header__left .menu-item .menu-line__right .line-horizontal {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.header__left .menu-item__active .menu-line {
+  visibility: visible;
+}
+
+.header__left .menu:first-child .menu-item {
+  -ms-grid-columns: auto minmax(19px, 1fr);
+      grid-template-columns: auto minmax(19px, 1fr);
+}
+
+.header__left .menu:first-child .menu-item .menu-line.menu-line__left {
+  display: none;
+}
+
+.header__left .menu:last-child .menu-item {
+  -ms-grid-columns: 19px auto;
+      grid-template-columns: 19px auto;
+}
+
+.header__left .menu:last-child .menu-item .menu-line.menu-line__right {
+  display: none;
+}
+
+.header__left .menu.hideLeftLine .menu-item .menu-line.menu-line__left .hideLine {
+  display: block;
+}
+
+.header__left .menu.hideRightLine .menu-item .menu-line.menu-line__right .hideLine {
+  display: block;
+}
+/*# sourceMappingURL=style.css.map */

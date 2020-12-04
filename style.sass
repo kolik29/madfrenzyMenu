@@ -1,0 +1,103 @@
+$base-color: #036
+    
+body
+    font-family: Arial
+    
+ul
+    margin: 0
+    padding: 0
+    
+    li
+        list-style: none
+
+        a
+            color: #000
+            text-transform: uppercase
+            text-decoration: none
+
+.dashedLineHorizontal
+    background: url('lineHorizontal.svg')
+    background-position-x: -3px
+    background-repeat-y: no-repeat
+    height: 1px
+
+.dashedLineVertical
+    background: url('lineVertical.svg')
+    background-position-y: -3.5px
+    background-repeat-x: no-repeat
+    margin-top: -.5px
+    width: 1px
+    
+.header__left
+    display: flex
+    font-size: 19px
+    overflow: hidden
+    
+    .menu
+        position: relative
+        margin-left: -1px
+
+        &-item
+            white-space: nowrap
+            align-items: center
+            grid-gap: 3px
+            line-height: 18px
+            display: grid
+            grid-template-columns: 19px auto minmax(19px, 1fr)
+
+            .menu-line
+                visibility: hidden
+
+                .line-horizontal
+                    @extend .dashedLineHorizontal
+
+                .hideLine
+                    height: 100%
+                    position: absolute
+                    width: 1px
+                    background-color: #fff
+                    display: none
+                    z-index: 1
+
+                &:after
+                    position: absolute
+                    content: ''
+                    height: 100%
+                    @extend .dashedLineVertical
+
+                &__right
+                    &:after, .hideLine
+                        right: 0
+
+                    .line-horizontal
+                        transform: rotate(180deg)
+
+            &__active
+                .menu-line
+                    visibility: visible
+
+        &:first-child
+            .menu-item
+                grid-template-columns: auto minmax(19px, 1fr)
+
+                .menu-line.menu-line__left
+                    display: none
+
+        &:last-child
+            .menu-item
+                grid-template-columns: 19px auto
+
+                .menu-line.menu-line__right
+                    display: none
+
+        &.hideLeftLine
+            .menu-item
+                .menu-line.menu-line__left
+                    .hideLine
+                        display: block
+            
+        &.hideRightLine
+            .menu-item
+                .menu-line.menu-line__right
+                    .hideLine
+                        display: block
